@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const monthSelect = document.getElementById('month-select');
   let selectedDate = null;
 
-  // Carrega tarefas salvas no Local Storage
   function loadTasks() {
     const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
     savedTasks.forEach(task => {
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Salva tarefas no Local Storage
   function saveTasks() {
     const taskItems = document.querySelectorAll('.task-item');
     const tasksArray = Array.from(taskItems).map(taskItem => {
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('tasks', JSON.stringify(tasksArray));
   }
 
-  // Adiciona tarefa ao DOM
   function addTaskToDOM(title, date, status) {
     const taskItem = document.createElement('li');
     taskItem.classList.add('task-item', `task-${status}`);
@@ -46,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </select>
     `;
 
-    // Atualiza a classe da tarefa ao mudar o status
     const statusSelect = taskItem.querySelector('.change-status');
     statusSelect.addEventListener('change', (e) => {
       taskItem.className = `task-item task-${e.target.value}`;
@@ -56,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tasks.appendChild(taskItem);
   }
 
-  // Popula os anos no seletor de ano
   for (let year = 2020; year <= 2090; year++) {
     const option = document.createElement('option');
     option.value = year;
@@ -64,12 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     yearSelect.appendChild(option);
   }
 
-  // Define o ano e o mês atual como padrão
   const now = new Date();
   yearSelect.value = now.getFullYear();
   monthSelect.value = now.getMonth();
 
-  // Função para gerar o calendário
   function generateCalendar(year, month) {
     const date = new Date(year, month, 1);
     const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -94,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calendarHTML += '</tr></table>';
     calendarContainer.innerHTML = calendarHTML;
 
-    // Adiciona eventos de clique nos dias
     document.querySelectorAll('td[data-date]').forEach(td => {
       td.addEventListener('click', (e) => {
         selectedDate = e.target.dataset.date;
@@ -103,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Atualiza o calendário quando o ano ou o mês forem alterados
   yearSelect.addEventListener('change', () => {
     generateCalendar(yearSelect.value, parseInt(monthSelect.value));
   });
@@ -112,14 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
     generateCalendar(yearSelect.value, parseInt(monthSelect.value));
   });
 
-  // Fecha o modal ao clicar fora dele
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
 
-  // Adiciona tarefa ao salvar no formulário
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const title = taskTitle.value;
@@ -127,14 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addTaskToDOM(title, selectedDate, status);
 
-    saveTasks(); // Salva após adicionar a tarefa
+    saveTasks();
     form.reset();
     modal.style.display = 'none';
   });
 
-  // Carrega as tarefas salvas ao iniciar o site
   loadTasks();
 
-  // Gera o calendário inicial
   generateCalendar(now.getFullYear(), now.getMonth());
 });
