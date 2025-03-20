@@ -1,0 +1,218 @@
+/* Estilo básico */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+  }
+  
+  header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  /* Estilo do calendário */
+  #calendar-container {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  td {
+    width: 14.28%;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    color: #555;
+    font-size: 16px;
+    background-color: #fafafa;
+  }
+  
+  td:hover {
+    background-color: #ffeb3b;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  /* Modal - Oculto por padrão */
+  .modal {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 10;
+  }
+  
+  /* Conteúdo do modal */
+  .modal-content {
+    text-align: center;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-content input,
+  .modal-content select,
+  .modal-content button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .modal-content button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #4cae4c;
+  }
+  
+  /* Legenda no canto inferior direito */
+  #task-legend {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+  }
+  
+  #task-legend h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #000; /* Texto preto para destaque */
+    text-align: center;
+  }
+  
+  #task-legend div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000; /* Texto preto */
+  }
+  
+  #task-legend div span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 3px;
+  }
+  
+  .legend-pendente {
+    background-color: #ffeb3b; /* Amarelo */
+  }
+  
+  .legend-atrasada {
+    background-color: #ff8a80; /* Vermelho */
+  }
+  
+  .legend-concluida {
+    background-color: #c8e6c9; /* Verde */
+  }
+/* Estilo das tarefas com balão e marcador */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Necessário para o marcador */
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #fff; /* Fundo branco para o balão */
+    border: 1px solid #ddd; /* Borda cinza suave */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    color: #000; /* Texto em preto */
+    font-size: 16px;
+  }
+  
+  /* Marcador colorido no canto do balão */
+  .task-item::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -5px; /* Ajusta o marcador para fora do balão */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Forma circular */
+  }
+  
+  /* Cores para os diferentes status */
+  .task-pendente::before {
+    background-color: #ffeb3b; /* Amarelo para pendente */
+  }
+  
+  .task-atrasada::before {
+    background-color: #ff8a80; /* Vermelho para atrasada/cancelada */
+  }
+  
+  .task-concluida::before {
+    background-color: #4caf50; /* Verde para concluída */
+  }
+  /* Controles do calendário */
+#calendar-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  #calendar-controls label {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  #calendar-controls select {
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  

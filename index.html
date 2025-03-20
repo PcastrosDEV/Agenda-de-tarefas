@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gerenciador de Tarefas</h1>
+  </header>
+  <main>
+    <!-- MONTHS OF THE YEAR -->
+    <div id="calendar-controls">
+      <label for="year-select">Ano:</label>
+      <select id="year-select"></select>
+
+      <label for="month-select">Mês:</label>
+      <select id="month-select">
+        <option value="0">Janeiro</option>
+        <option value="1">Fevereiro</option>
+        <option value="2">Março</option>
+        <option value="3">Abril</option>
+        <option value="4">Maio</option>
+        <option value="5">Junho</option>
+        <option value="6">Julho</option>
+        <option value="7">Agosto</option>
+        <option value="8">Setembro</option>
+        <option value="9">Outubro</option>
+        <option value="10">Novembro</option>
+        <option value="11">Dezembro</option>
+      </select>
+    </div>
+
+    <!-- CALENDAR -->
+    <section id="calendar">
+      <h2>Calendário</h2>
+      <div id="calendar-container"></div>
+    </section>
+
+    <!-- TASK LIST -->
+    <section id="task-list">
+      <h3>Tarefas</h3>
+      <ul id="tasks"></ul>
+    </section>
+  </main>
+
+  <!-- ADD TASK -->
+  <div id="task-modal" class="modal">
+    <div class="modal-content">
+      <h2>Adicionar Tarefa</h2>
+      <form id="task-form">
+        <input type="text" id="task-title" placeholder="Título da Tarefa" required>
+        <select id="task-status">
+          <option value="pendente">Pendente</option>
+          <option value="concluida">Concluída</option>
+          <option value="em_atraso">Em Atraso</option>
+          <option value="cancelada">Cancelada</option>
+        </select>
+        <button type="submit">Salvar Tarefa</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TASK CAPTION -->
+  <div id="task-legend">
+    <h4>Legenda</h4>
+    <div><span class="legend-pendente"></span> Pendente</div>
+    <div><span class="legend-atrasada"></span> Atrasada/Cancelada</div>
+    <div><span class="legend-concluida"></span> Concluída</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
